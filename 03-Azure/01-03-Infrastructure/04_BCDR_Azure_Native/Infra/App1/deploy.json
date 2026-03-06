@@ -544,7 +544,7 @@
           "variables": {
             "location": "[resourceGroup().location]",
             "unique": "[uniqueString(resourceGroup().id)]",
-            "subName": "[format('{0}{1}{2}', parameters('namePrefix'), variables('location'), variables('unique'))]",
+            "subName": "[format('{0}{1}{2}', parameters('namePrefix'), substring(variables('location'), 0, 3), variables('unique'))]",
             "Name": "[if(greaterOrEquals(length(variables('subName')), 24), substring(variables('subName'), 0, 24), variables('subName'))]",
             "logSettings": [
               {
