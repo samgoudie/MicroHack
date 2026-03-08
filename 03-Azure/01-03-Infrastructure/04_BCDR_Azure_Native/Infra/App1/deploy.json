@@ -681,8 +681,9 @@
           },
           "variables": {
             "location": "[resourceGroup().location]",
+            "regionShort": "[substring(variables('location'), 0, 3)]",
             "nameSuffix": "vnet",
-            "vnetName": "[format('{0}-{1}-{2}', parameters('namePrefix'), variables('location'), variables('nameSuffix'))]",
+            "vnetName": "[format('{0}-{1}-{2}', parameters('namePrefix'), variables('regionShort'), variables('nameSuffix'))]",
             "defaultNSGRules": [
               {
                 "name": "AllowHTTPFromInternet",
